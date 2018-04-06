@@ -1,0 +1,23 @@
+{
+  "name": "codingbrains",
+  "version": "1.0.0",
+  "description": "A Platform for young coders to test Coding, DS, Algo Skills",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuj-aggarwal/CodingBrains.git"
+  },
+  "author": "ABK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anuj-aggarwal/CodingBrains/issues"
+  },
+  "homepage": "https://github.com/anuj-aggarwal/CodingBrains#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  }
+}
