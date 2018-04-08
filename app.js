@@ -1,10 +1,14 @@
 // Require Necessary Packages
 const express = require("express");
+const path = require('path');
 
 // User Defined Files
 const CONFIG = require("./config");
 // Require Routes
 const routes = require("./routes");
+
+// Require mongoDB connection
+const db = require('./db');
 
 
 // INITIALIZATION
