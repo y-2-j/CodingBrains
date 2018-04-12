@@ -5,6 +5,7 @@ const route = require("express").Router();
 
 
 // Use all Subroutes on the route
+route.use("/", require("./auth"));
 
 
 // Export the Router
