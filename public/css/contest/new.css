@@ -1,0 +1,15 @@
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#flash-message {
+    border: 1px solid red;
+    border-radius: 2px;
+
+    padding: 10px;
+    margin: 20px;
+    background-color: #ff470063;
+    color: darkred;
+    font-weight: bold;
+}
