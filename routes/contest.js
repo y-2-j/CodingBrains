@@ -33,7 +33,8 @@ route.post("/", checkLoggedIn, async (req, res) => {
 //GET Route for fetching list of upcoming and live contests
 route.get("/", async (req, res) => {
     try{
-        const contests = await Contest.gt("endTime", Date.now())
+        const contests = await Contest.find()
+                                      .gt("endTime", Date.now())
                                       .sort({ startTime: "ascending" });
         
         res.render("contests", { contests });
@@ -47,8 +48,8 @@ route.get("/", async (req, res) => {
 //GET Route for fetching details about a particular Contest
 route.get("/:id", async (req,res)=>{
     try{
-        const contest = await Contest.findById(req.params.id).populate("problems organizer");
-        res.render("contest/index", { contest });
+        const contest = await Contest.findById(req.params.id).populate("problems").populate("organizer");
+        res.render("contest/index", { contest, contestStarted: contest.startTime <= Date.now() });
 
     }catch (err){
         console.error(err.stack);

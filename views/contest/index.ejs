@@ -10,18 +10,23 @@
     <h1> <%= contest.name %></h1>
     <div>
         <span>Start Time:<%= contest.startTime %> </span> &emsp;
-        <span>Duration :<%= contest.duration %>  </span>
-        <ul>
-            <% contest.problems.forEach(problem => { %>
-            <li>
-                <%= problem.name%> &emsp; Accuracy: <%= problem.accuracy%> &emsp; Successful Attempts: <%= problem.numSuccessfulAttempts%>
-            </li>
-            <% }); %>
-        </ul>
+        <span>Duration: <%= contest.duration %>  </span>
+        <h2>Problems</h2>
+        <% if (contestStarted) { %>
+            <ul>
+                <% contest.problems.forEach(problem => { %>
+                    <li>
+                        <%= problem.name%> &emsp; Accuracy: <%= problem.accuracy%> &emsp; Successful Attempts: <%= problem.numSuccessfulAttempts%>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            Problems will be available once the Contest starts
+        <% } %>
     </div>
     <h2>Other details</h2>
     <div>
-        <span >Organizer: <%= contest.organizer.name %></span><br>
+        <span>Organizer: <%= contest.organizer.name %></span><br>
         <h3>Prizes</h3>
         <ul>
             <% contest.prizes.forEach(prize =>{%>
