@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Contest</title>
+</head>
+<body>
+    <h1>Create Contest</h1>
+    <form action="/contests" method="POST">
+        <!-- Contes Name -->
+        <label for="name">Contest Name: </label>
+        <input type="text" name="name" id="name">
+        <!-- Start Time -->
+        <label for="startTime">Start Time: </label>
+        <input type="datetime-local" name="startTime" id="startTime">
+        <!-- Duration -->
+        <label for="duration">Duration: </label>
+        <input type="number" name="duration" id="duration" step="0.5">
+        <!-- TODO: Add List for Prizes -->
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

@@ -21,6 +21,8 @@ const Passport = require("./passport");
 const app = express();
 
 
+// Use ejs as templating engine
+app.set("view engine", "ejs");
 
 // MIDDLEWARES
 // Parse Request Bodies
