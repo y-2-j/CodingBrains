@@ -1,7 +1,7 @@
 const route = require("express").Router();
 
 // Import DB Models required
-const { Contest } = require("../models");
+const { Contest, User } = require("../models");
 const { checkLoggedIn } = require("../utils/auth");
 
 // GET Route for Create Page for contest
@@ -40,6 +40,18 @@ route.get("/", async (req, res) => {
         res.render("contests", { contests });
 
     }catch(err){
+        console.error(err.stack);
+        res.sendStatus(500);
+    }
+});
+
+//GET Route for fetching details about a particular Contest
+route.get("/:id", async (req,res)=>{
+    try{
+        const contest = await Contest.findById(req.params.id).populate("problems organizer");
+        res.render("contest/index", { contest });
+
+    }catch (err){
         console.error(err.stack);
         res.sendStatus(500);
     }
