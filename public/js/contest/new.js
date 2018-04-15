@@ -33,11 +33,18 @@ $(() => {
     // Event Listener for Submitting form,
     // and making POST Request to Server for Creation of Contest
     $submitBtn.click(() => {
+        const name = $nameInput.val();
+        const startTime = $startTimeInput.val();
+        const duration = $durationInput.val();
+
+        if (name === "" || isNaN(duration))
+            return;
+        if (!moment(startTime).isValid() || moment(startTime).diff(Date.now(), "days") <= 0)
+            return;
+
         // TODO: Validate for all Form Fields
         $.post("/contests", {
-            name: $nameInput.val(),
-            startTime: $startTimeInput.val(),
-            duration: $durationInput.val(),
+            name, startTime, duration,
             prizes: $(".prize").toArray().map(prize => $(prize).text())
         })
          .then(data => {
