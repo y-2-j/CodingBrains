@@ -30,4 +30,19 @@ route.post("/", checkLoggedIn, async (req, res) => {
     }
 });
 
+//GET Route for fetching list of upcoming and live contests
+route.get("/", async (req, res) => {
+    try{
+        const contests = await Contest.find({
+            startTime:{$gte: Date.now()}
+        })
+            .sort({startTime: 1});
+        res.render("contests", { contests });
+
+    }catch(err){
+        console.error(err.stack);
+        res.sendStatus(500);
+    }
+});
+
 module.exports = route;
