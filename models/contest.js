@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const contestSchema = mongoose.Schema({
-    id: {
-        type: String,
-        unique: true
-    },
     name: String,
     startTime: Date,
     duration: Number,   // Duration in Hours

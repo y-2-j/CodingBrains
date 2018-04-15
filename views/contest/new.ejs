@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Create Contest</title>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
+    <!-- Custom JS -->
+    <script src="/js/contest/new.js"></script>
+
 </head>
 <body>
     <h1>Create Contest</h1>
-    <form action="/contests" method="POST">
-        <!-- Contes Name -->
+    <div>
+        <!-- Contest Name -->
         <label for="name">Contest Name: </label>
         <input type="text" name="name" id="name">
         <!-- Start Time -->
@@ -18,9 +27,22 @@
         <!-- Duration -->
         <label for="duration">Duration: </label>
         <input type="number" name="duration" id="duration" step="0.5">
-        <!-- TODO: Add List for Prizes -->
 
-        <button type="submit">Submit</button>
-    </form>
+        <!-- List of Prizes -->
+        <div>
+            <h3>Prizes</h3>
+            <!-- Add Prize Form -->
+            <form id="add-prize-form">
+                <input id="add-prize-input" type="text" placeholder="Enter a Prize">
+                <button id="add-prize-btn">+</button>
+            </form>
+            <ul id="prize-list">
+                <span id="temp-message">Add a Prize to the Contest</span>
+            </ul>
+        </div>
+        
+        <!-- Submit Button -->
+        <button id="submitBtn">Submit</button>
+    </div>
 </body>
 </html>
