@@ -13,16 +13,16 @@ route.get("/new", (req, res) => {
 route.post("/", checkLoggedIn, async (req, res) => {
     try {
         // Extract required fields from Request Body
-        const { name, startTime, duration } = req.body;
+        const { name, startTime, duration, prizes } = req.body;
 
         // Create the contest
         const contest = await Contest.create({
-            name, startTime, duration,
+            name, startTime, duration, prizes,
             organizer: req.user._id
         });
 
         // Redirect User to Upload Problems Page
-        res.redirect(`/contests/${contest._id}/problems/new`);
+        res.send(`/contests/${contest._id}/problems/new`);
 
     } catch (err) {
         console.error(err.stack);
