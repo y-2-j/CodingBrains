@@ -1,14 +1,11 @@
 const mongoose=require('mongoose');
 
 const problemSchema = mongoose.Schema({
-    id: {
-        type: String,
-        unique: true
-    },
     contest: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "contest"
     },
+    name: String,
     statement: String,
     editorial: String,
     testCases: [{

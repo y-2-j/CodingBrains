@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Contest</title>
+
+    <link rel="stylesheet" href="/css/contest/edit.css">
+
+</head>
+<body>
+    <p>Contest Name: <%= contest.name %></p>
+    <p>Start Time: <%= contest.startTime %></p>
+    <p>Duration: <%= contest.duration %></p>
+
+    <div id="problems">
+        <h2>Problems: </h2>
+        <ul>
+            <% contest.problems.forEach(problem => { %>
+                <li class="problem">
+                    <%= problem.name%>
+                </li>
+            <% }); %>
+        </ul>
+        <a href="/contests/<%= contest._id %>/problems/new" id="add-problem-btn">Add Problem</a>
+    </div>
+
+    Prizes: <br>
+    <ul>
+        <% contest.prizes.forEach(prize => { %>
+            <li><%= prize %></li>
+        <% }) %>
+    </ul>
+
+</body>
+</html>
