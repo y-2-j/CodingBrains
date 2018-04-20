@@ -6,18 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Create Contest</title>
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/contest/new.css">
+
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>
     <!-- Custom JS -->
     <script src="/js/contest/new.js"></script>
 
 </head>
 <body>
     <h1>Create Contest</h1>
-    <div>
+    <div class="container">
+        <div id="flash-message" style="display:none;"></div>
         <!-- Contest Name -->
         <label for="name">Contest Name: </label>
         <input type="text" name="name" id="name">
