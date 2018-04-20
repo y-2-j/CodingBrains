@@ -7,6 +7,7 @@ const route = require("express").Router();
 // Use all Subroutes on the route
 route.use("/", require("./auth"));
 route.use("/contests", require("./contest"));
+route.use("/problems", require("./problems"));
 
 
 // Export the Router
