@@ -1,7 +1,7 @@
 const route = require("express").Router();
 
 // Import DB Models required
-const { Contest } = require("../models");
+const { Contest, User } = require("../models");
 const { checkLoggedIn } = require("../utils/auth");
 
 // GET Route for Create Page for contest
@@ -25,6 +25,33 @@ route.post("/", checkLoggedIn, async (req, res) => {
         res.send(`/contests/${contest._id}/problems/new`);
 
     } catch (err) {
+        console.error(err.stack);
+        res.sendStatus(500);
+    }
+});
+
+//GET Route for fetching list of upcoming and live contests
+route.get("/", async (req, res) => {
+    try{
+        const contests = await Contest.find()
+                                      .gt("endTime", Date.now())
+                                      .sort({ startTime: "ascending" });
+        
+        res.render("contests", { contests });
+
+    }catch(err){
+        console.error(err.stack);
+        res.sendStatus(500);
+    }
+});
+
+//GET Route for fetching details about a particular Contest
+route.get("/:id", async (req,res)=>{
+    try{
+        const contest = await Contest.findById(req.params.id).populate("problems").populate("organizer");
+        res.render("contest/index", { contest, contestStarted: contest.startTime <= Date.now() });
+
+    }catch (err){
         console.error(err.stack);
         res.sendStatus(500);
     }
