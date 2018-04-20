@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Problem</title>
+</head>
+<body>
+    <form action="/contests/<%= contestId %>/problems" method="POST">
+        <div>
+            <label for="name">Problem Name: </label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div>
+            <label for="statement">Problem Statement: </label>
+            <textarea name="statement" id="statement" cols="30" rows="10" required></textarea>
+        </div>
+        <div>
+            <label for="editorial">Editorial: </label>
+            <textarea name="editorial" id="editorial" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+            <label for="sample-input">Sample Input: </label>
+            <textarea name="sampleInput" id="sample-input" cols="30" rows="3" required></textarea>
+        </div>
+        <div>
+            <label for="sample-output">Sample Output: </label>
+            <textarea name="sampleOutput" id="sample-output" cols="30" rows="3" required></textarea>
+        </div>
+        <div>
+            <label for="test-cases">Test Cases: </label>
+            <textarea name="input" id="test-cases" cols="30" rows="3" required></textarea>
+        </div>
+        <div>
+            <label for="output">Output: </label>
+            <textarea name="output" id="output" cols="30" rows="3" required></textarea>
+        </div>
+        <div>
+            <label for="memory">Memory Limit(in MB): </label>
+            <input type="number" name="memoryLimit" id="memory" required>
+        </div>
+        <div>
+            <label for="time">Time Limit(in sec.): </label>
+            <input type="number" name="timeLimit" id="time" required>
+        </div>
+        <button>Submit</button>
+    </form>
+</body>
+</html>
