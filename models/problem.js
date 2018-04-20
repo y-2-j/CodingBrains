@@ -8,6 +8,8 @@ const problemSchema = mongoose.Schema({
     name: String,
     statement: String,
     editorial: String,
+    sampleInput: String,
+    sampleOutput: String,
     testCases: [{
         // Store in File later, currently as String in DB
         input: String,

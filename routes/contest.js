@@ -93,21 +93,10 @@ route.post("/:id/problems", checkLoggedIn, async (req, res) => {
 
         let { name, statement, sampleInput, sampleOutput, editorial, input, output, memoryLimit, timeLimit } = req.body;
 
-        // Join Sample Input and Output
-        statement += `
-            <br>
-            <b>Sample Input</b>
-            <br>
-            ${sampleOutput}
-            <br>
-            <b>Sample Input</b>
-            <br>
-            ${sampleOutput}
-            <br>
-        `
         const problem = await Problem.create({
             name, statement, editorial,
             contest: contest._id,
+            sampleInput, sampleOutput,
             testCases: [{ input, output }],
             memoryLimit, timeLimit,
             attempts: [],
