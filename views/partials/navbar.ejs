@@ -8,36 +8,39 @@
 
     <!-- Navbar Buttons on Right -->
     <ul class="navbar-nav ml-auto">
-        <!-- Login Signup Button -->
-        <li class="nav-item mr-5">
-            <a id="login-signup-btn" class="btn btn-success">Login/Signup</a>
-        </li>
-
-        <!-- Welcome User Dropdown -->
-        <li class="nav-item dropdown mr-5">
-            <a class="btn btn-danger dropdown-toggle" href="#" id="navbar-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Welcome User!
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
-                <a href="#" class="dropdown-item">Profile</a>
-                <a href="#" class="dropdown-item">Hold a Contest</a>
-                <a href="#" class="dropdown-item">Organized Contests</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
-            </div>
-        </li>
+        <% if (user) { %>
+            <!-- Welcome User Dropdown -->
+            <li class="nav-item dropdown mr-5">
+                <a class="btn btn-danger dropdown-toggle" href="#" id="navbar-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Welcome <%= user.username %>!
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+                    <a href="#" class="dropdown-item">Profile</a>
+                    <a href="/contests/new" class="dropdown-item">Hold a Contest</a>
+                    <a href="#" class="dropdown-item">Organized Contests</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="/logout" class="dropdown-item">Logout</a>
+                </div>
+            </li>
+        <% } else { %>
+            <!-- Login Signup Button -->
+            <li class="nav-item mr-5">
+                <a id="login-signup-btn" class="btn btn-success">Login/Signup</a>
+            </li>
+        <% } %>
     </ul>
 </nav>
 
-<!-- Login Modal -->
-<div id="login-modal">
+<% if (!user) { %>
+    <!-- Login Modal -->
+    <div id="login-modal">
         <div id="login-form" class="container text-center">
             <!-- Login Heading -->
             <img src="/img/login.png" width="100px" height="100px">
             <h1>User Login</h1>
             <!-- Close Button -->
             <a id="login-close-btn"><i class="fa fa-times"></i></a>
-    
+
             <!-- Login Form -->
             <form action="/login" method="POST">
                 <!-- Username -->
@@ -57,7 +60,7 @@
             </form>
         </div>
     </div>
-    
+
     <!--Signup Modal-->
     <div id="signup-modal">
         <div id="signup-form" class="container text-center">
@@ -65,7 +68,7 @@
             <img src="img/signup.png" width="100px" height="100px">
             <h1>User Signup</h1>
             <a id="signup-close-btn"><i class="fa fa-times"></i></a>
-    
+
             <!-- Signup Form -->
             <form action="/signup" method="POST">
                 <!-- Name -->
@@ -94,4 +97,4 @@
             </form>
         </div>
     </div>
-    
+<% } %>
