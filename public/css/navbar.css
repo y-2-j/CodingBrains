@@ -1,0 +1,59 @@
+/* CSS Styles for NAVBAR */
+@import url("https://fonts.googleapis.com/css?family=Lobster");
+
+.navbar {
+    width: 100%;
+}
+
+/* Navbar Logo & Brand */
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bolder;
+}
+/* Logo Image */
+#logo{
+    margin-right: 0.625rem;
+    object-fit: contain;
+}
+
+/* Login/Signup Button on Navbar */
+#login-signup-btn {
+    color: #ffffff;
+}
+
+
+/* Login and Signup Modals */
+#login-modal, #signup-modal {
+    position: fixed;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    background-color: #0e0e0e7a;
+}
+/* Login, Signup Forms */
+#login-form , #signup-form{
+    position: relative;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 500px;
+
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+/* Login, Signup Close Buttons */
+#login-close-btn , #signup-close-btn{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    cursor: pointer;
+}
+
+#login-btn, #signup-btn {
+    margin-top: 5px;
+}
