@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <% include ./partials/header %>
+
     <title>Contests</title>
+
+    <!-- Menu Bar CSS -->
+    <link rel="stylesheet" href="/css/menu-bar.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/contests.css">
+
 </head>
+
 <body>
-    <h1>Upcoming Contests</h1>
-    <div>
-        <ul>
-            <% contests.forEach(contest => { %>
-                <li>
-                    <a href="/contests/<%= contest._id %>">
-                        <%= contest.name%> &emsp;
-                        Start time: <%= contest.startTime%> &emsp;
-                        <%= contest.duration%>
-                    </a>
-                </li>
-            <% }) %>
-        </ul>
+    <!-- Navbar -->
+    <% include ./partials/navbar %>
+    <!-- Menu Bar -->
+    <% include ./partials/menu-bar %>
+
+    <!-- Upcoming contests container -->
+    <div class="container contests-container">
+        <!-- Heading -->
+        <h3 class="sub-header text-center mb-2">Upcoming Contests</h3>
+
+        <!-- List Header -->
+        <div class="row list-header">
+            <div class="col-5">Contest Name</div>
+            <div class="col-6">Start Time</div>
+            <div class="col-1">Duration</div>
+        </div>
+        <!-- List Item for each contest -->
+        <% contests.forEach(contest => { %>
+            <a href="/contests/<%= contest._id %>" class="list-item">
+                <div class="row">
+                    <div class="col-sm-5"><%= contest.name %></div>
+                    <div class="col-sm-6"><%= contest.startTime %></div>
+                    <div class="col-sm-1"><%= contest.duration %></div>
+                </div>
+            </a>
+        <% }) %>
     </div>
 </body>
+
 </html>
