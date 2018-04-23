@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+
+/* CountDown Container */
+#countdown-container {
+    background-color: #ECF0F1;
+    font-family: 'Roboto', sans-serif;
+    padding: 15px;
+    margin-right: 20px;
+    border-radius: 5px;
+
+}
+#countdown {
+    font-size: 2rem;
+}
+
+/* Contest Name Container */
+#name-container {
+    background-color: #e3f2fd;
+    padding: 20px 30px;
+    margin-left: 10px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 33px;
+}
+
+
+/* Problems List */
+.contests-container {
+    background-color: #ECF0F1;
+    padding: 30px;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.sub-header {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.list-header {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px;
+    background-color: #e3f2fd;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.list-item {
+    display: block;
+    margin: 5px 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+
+    font-weight: bolder;
+}
+
+.list-item:hover {
+    text-decoration: none;
+    background-color: #aaaaaa;
+}
+
+/* Problems List: END */
+
+
+/* Contest Details Container */
+#details-container {
+    background-color: #f4faff;
+    padding: 20px 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* Contest Rules & Regulations */
+#rules-container {
+    background-color: #ECF0F1;
+    padding: 20px 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+#rules-container h3, #details-container h3 {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
