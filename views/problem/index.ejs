@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= problem.name %></title>
+</head>
+<body>
+    <p><b>Problem Name</b>: <%= problem.name %></p>
+    <p><b>Problem Statement</b>: <%= problem.statement %></p>
+    <p><b>Sample Input</b>: <%= problem.sampleInput %></p>
+    <p><b>Sample Output</b>: <%= problem.sampleOutput %></p>
+    <p><b>Memory Limit</b>: <%= problem.memoryLimit %> MB</p>
+    <p><b>Time Limit</b>: <%= problem.timeLimit %>s</p>
+    <p><b>Accuracy</b>: <%= problem.accuracy %>%</p>
+    <a href="/problems/<%= problem._id %>/editorial">Editorial</a>
+    <% if (loggedIn) { %>
+        <form action="/problems/<%= problem._id %>/submit" method="POST">
+            <textarea name="code" id="code" cols="30" rows="10" required></textarea>
+            <select name="language" id="language">
+                <option value="cpp">C++14</option>
+                <option value="c">C</option>
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+    <% } %>
+</body>
+</html>
