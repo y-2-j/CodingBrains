@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+.contests-container {
+    background-color: #ECF0F1;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+.sub-header {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.list-header {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px;
+    background-color: #e3f2fd;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.list-item {
+    display: block;
+    margin: 5px 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+
+    font-weight: bolder;
+}
+
+.list-item:hover {
+    text-decoration: none;
+    background-color: #aaaaaa;
+}

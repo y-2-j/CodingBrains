@@ -1,8 +1,8 @@
 // Create Express Router
 const route = require("express").Router();
 
-// Require all SubRoutes
-
+// Render index Page on Root Route
+route.get("/", (req, res) => res.render("index"));
 
 // Use all Subroutes on the route
 route.use("/", require("./auth"));

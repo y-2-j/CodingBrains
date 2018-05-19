@@ -50,6 +50,11 @@ app.use(Passport.session());
 // Serve static Files
 app.use(express.static(path.join(__dirname, "public"), { extensions: ["html"] }));
 
+// Add User to every response's locals
+app.use((req, res, next) => {
+	res.locals.user = req.user;
+	next();
+});
 
 // ROUTES
 app.use("/", routes);
