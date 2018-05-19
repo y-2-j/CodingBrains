@@ -21,6 +21,11 @@ route.post("/", checkLoggedIn, async (req, res) => {
             organizer: req.user._id
         });
 
+        // Add Contest to user's organized contests
+        req.user.contestsOrganized.push(contest);
+
+        await req.user.save();
+
         // Redirect User to Upload Problems Page
         res.send(`/contests/${contest._id}/edit`);
 
@@ -127,6 +132,20 @@ route.get("/", async (req, res) => {
 
     }catch(err){
         console.error(err.stack);
+        res.sendStatus(500);
+    }
+});
+
+// GET Route for all Organized Contests of the User
+route.get("/organized", checkLoggedIn, async (req, res) => {
+    try {
+        await User.populate(req.user, "contestsOrganized");
+        
+        // Render the Organized Contests Page
+        res.render("contest/organized", { contests: req.user.contestsOrganized });
+
+    } catch (err) {
+        console.error(err);
         res.sendStatus(500);
     }
 });
