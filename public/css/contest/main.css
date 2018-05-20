@@ -94,3 +94,9 @@
     font-weight: bold;
     font-size: 1.5rem;
 }
+
+/*Add problem button*/
+#add-problem-btn {
+    margin : 15px 15px;
+    display: block;
+}
