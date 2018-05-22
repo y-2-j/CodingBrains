@@ -1,50 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>New Problem</title>
+    <% include ../partials/header %>
+
+    <title>Edit/Add a problem</title>
+
+    <!--Navbar CSS-->
+    <link rel="stylesheet" href="/css/navbar.css">
+
+    <!-- Menu Bar CSS -->
+    <link rel="stylesheet" href="/css/menu-bar.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/problem/new.css">
+
 </head>
 <body>
-    <form action="/contests/<%= contestId %>/problems" method="POST">
-        <div>
-            <label for="name">Problem Name: </label>
-            <input type="text" name="name" id="name" required>
-        </div>
-        <div>
-            <label for="statement">Problem Statement: </label>
-            <textarea name="statement" id="statement" cols="30" rows="10" required></textarea>
-        </div>
-        <div>
-            <label for="editorial">Editorial: </label>
-            <textarea name="editorial" id="editorial" cols="30" rows="10"></textarea>
-        </div>
-        <div>
-            <label for="sample-input">Sample Input: </label>
-            <textarea name="sampleInput" id="sample-input" cols="30" rows="3" required></textarea>
-        </div>
-        <div>
-            <label for="sample-output">Sample Output: </label>
-            <textarea name="sampleOutput" id="sample-output" cols="30" rows="3" required></textarea>
-        </div>
-        <div>
-            <label for="test-cases">Test Cases: </label>
-            <textarea name="input" id="test-cases" cols="30" rows="3" required></textarea>
-        </div>
-        <div>
-            <label for="output">Output: </label>
-            <textarea name="output" id="output" cols="30" rows="3" required></textarea>
-        </div>
-        <div>
-            <label for="memory">Memory Limit(in MB): </label>
-            <input type="number" name="memoryLimit" id="memory" required>
-        </div>
-        <div>
-            <label for="time">Time Limit(in sec.): </label>
-            <input type="number" name="timeLimit" id="time" required>
-        </div>
-        <button>Submit</button>
-    </form>
+<!-- Navbar -->
+<% include ../partials/navbar %>
+
+<!-- Menu Bar -->
+<% include ../partials/menu-bar %>
+
+<!--Main Container-->
+<div class="container" id="main-container">
+    <h3 align="left" id="heading">Add / Edit Problem for<em> Contest Name</em></h3>
+    <div class="container" id="form-container">
+        <form action="/contests/<%= contestId %>/problems" method="POST">
+
+            <!--Problem Name-->
+            <div class="form-row">
+                <label for="problemName" class="labels">Problem Name</label>
+                <input type="text" class="form-control is-valid" id="problemName" name="name" placeholder="Name of the problem" required >
+            </div>
+
+            <div class="form-row">
+                <!--Time Limits-->
+                <div class="col-sm-6">
+                    <label for="timeLimit" class="labels">Time Limit (in s)</label>
+                    <input type="number" class="form-control is-valid" id="timeLimit" name="timeLimit" placeholder="Time Limit" required >
+                </div>
+
+                <!--Memory Limit-->
+                <div class="col-sm-6">
+                    <label for="memoryLimit" class="labels">Memory Limit (in KB)</label>
+                    <input type="number" class="form-control is-valid" id="memoryLimit" name="memoryLimit" placeholder="Memory Limit" required >
+                </div>
+
+            </div>
+
+            <!--Problem Statement-->
+            <div class="form-row">
+                <label for="problemStatement" class="labels">Problem Statement</label>
+                <textarea class="form-control" id="problemStatement" name="statement" rows="4" cols="110"></textarea>
+            </div>
+
+            <!--Sample Input-->
+            <div class="form-row">
+                <label for="sampleInput" class="labels">Sample Input</label>
+                <textarea class="form-control" id="sampleInput" name="sampleInput" rows="4" cols="110"></textarea>
+            </div>
+
+            <!--Sample Output-->
+            <div class="form-row">
+                <label for="sampleOutput" class="labels">Sample Output</label>
+                <textarea class="form-control" name="sampleOutput" id="sampleOutput" rows="4" cols="110"></textarea>
+            </div>
+
+            <!--Editorial-->
+            <div class="form-row">
+                <label for="editorial" class="labels">Editorial</label>
+                <textarea class="form-control" name="editorial" id="editorial" rows="4" cols="110"></textarea>
+            </div>
+
+            <!--Test Cases-->
+            <div class="form-row">
+                <label for="testCases" class="labels">Test Cases</label>
+                <textarea class="form-control" name="input" id="testCases" rows="4" cols="110"></textarea>
+            </div>
+
+            <!--Output-->
+            <div class="form-row">
+                <label for="output" class="labels">Output</label>
+                <textarea class="form-control" name ="output" id="output" rows="4" cols="110"></textarea>
+            </div>
+
+            <!--Submit-->
+            <div class="form-row">
+                <button type="submit" class="btn btn-primary btn-block">Submit form</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
 </body>
 </html>

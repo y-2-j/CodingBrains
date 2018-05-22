@@ -1,0 +1,42 @@
+h3 em {
+    color: brown;
+    font-style: normal;
+}
+
+#main-container {
+    max-width: 800px;
+    padding: 30px 40px 40px 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+#form-container {
+    padding: 30px 30px 30px 30px;
+    background-color: #e3f2fd;
+    border-radius: 5px;
+}
+
+.labels {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: brown
+}
+
+.form-row {
+    padding-top: 25px;
+}
+
+.btn-info {
+    width: 50%;
+}
+
+#heading {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+    padding-bottom: 10px;
+    margin-left: 13px;
+    color: black
+}

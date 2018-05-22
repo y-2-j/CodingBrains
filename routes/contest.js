@@ -39,21 +39,17 @@ route.post("/", checkLoggedIn, async (req, res) => {
 route.get("/:id/edit", checkLoggedIn, async (req, res) => {
     try {
         // Find the Contest
-        const contest = await Contest.findById(req.params.id);
+        const contest = await Contest.findById(req.params.id).populate("problems").populate("organizer");
 
         // If not found, 404
         if (contest === null)
             return res.status(404).send("Contest Not found!");
 
         // Check if user is same as organizer
-        if (contest.organizer.toString() !== req.user._id.toString())
+        if (contest.organizer._id.toString() !== req.user._id.toString())
             return res.status(401).send("You are not allowed to do so!");
 
-        await Contest.populate(contest, "problems");
-        console.log(contest);
-        
-        res.render("contest/edit", { contest });
-
+        res.render("contest/edit", { contest, contestStarted: contest.startTime <= Date.now() });
     } catch (err) {
         console.error(err.stack);
         res.sendStatus(500);
