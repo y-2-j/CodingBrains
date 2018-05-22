@@ -79,6 +79,8 @@ const createContestAndProblems = async (contestNum, numProblems, organizer, star
         contest.problems.push(...problems);
         await contest.save();
 
+        return contest;
+
     } catch (err) {
         console.error("Error creating Contest", err.stack);
     }
