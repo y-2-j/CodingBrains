@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/header %>
+    
+    <title><%= problem.name %></title>
+
+    <!-- Menu Bar CSS -->
+    <link rel="stylesheet" href="/css/menu-bar.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/problem/main.css">
+
+    <!-- Custom Script -->
+    <script src="/js/problem/index.js"></script>
+
+</head>
+<body>
+    <!-- Mavbar -->
+    <% include ../partials/navbar %>
+
+    <!-- Menu Bar -->
+    <% include ../partials/menu-bar %>
+
+    <!-- Main Container -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-8">
+                <!-- Problem Name Container -->
+                <div id="name-container" class="row">
+                    <div class="name col-sm-12"><%= problem.name %></div>
+                    <div id="badges" class="col-sm-12">
+                        <span class="tag-badge badge badge-pill badge-secondary">TAG 1</span>
+                        <span class="tag-badge badge badge-pill badge-secondary">TAG 2</span>
+                        <span class="tag-badge badge badge-pill badge-secondary">TAG 3</span>
+                    </div>
+                    <div class="col-sm-6">Successful Submissions: <%= problem.numSuccessfulAttempts %></div>
+                    <div class="col-sm-6">Accuracy: <%= problem.accuracy %>%</div>
+                </div>
+                
+                <!-- Problem Statement and Details -->
+                <div id="statement-container" class="row">
+                    <div class="col-sm-12">
+                        <h3 class="mb-3">Problem Statement</h3>
+                        <%= problem.statement %>
+                    </div>
+                    <div class="col-sm-12 mt-3">
+                        <h5><b>Sample Input:</b></h5>
+                        <samp>Hello</samp>
+                        <h5 class="mt-2"><b>Sample Output</b>:</h5>
+                        <samp><%= problem.sampleOutput %></samp>
+                    </div>
+                </div>
+
+                <% if (user) { %>
+                    <!-- Code Submission Container -->
+                    <div id="submit-container" class="row">
+                        <form action="/problems/<%= problem._id %>/Submissions" method="POST" class="col-sm-12">
+                            <div class="form-group">
+                                <label for="code-text-area">Submit your code here:</label>
+                                <textarea name="code" id="code-text-area" rows="10" class="form-control"></textarea>
+                            </div>
+                            <select class="custom-select col-sm-2">
+                                <option value="cpp" selected>C++14</option>
+                                <option value="c" disabled>C</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary col-sm-2">Submit</button>
+                        </form>
+                    </div>
+                <% } else { %>
+                    <!-- Code Submission Container -->
+                    <div id="submit-container" class="row">
+                        <button id="submit-login-btn" class="btn btn-primary">Login to Submit Code!</button>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- Side Container -->
+            <div class="col-sm-4">
+                <div id="side-container" class="container-fluid text-center">
+                    <a href="/problems/<%= problem._id %>/editorial" class="btn btn-block btn-success">Editorial</a>
+                    <a href="#" class="btn btn-block btn-secondary">My Submissions</a>
+                    <p>Memory Limit: <%= problem.memoryLimit %> MB</p>
+                    <p>Time Limit: <%= problem.timeLimit %>s</p>
+                    <p>Languages: C++14</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

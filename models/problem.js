@@ -1,16 +1,15 @@
 const mongoose=require('mongoose');
 
 const problemSchema = mongoose.Schema({
-    id: {
-        type: String,
-        unique: true
-    },
     contest: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "contest"
     },
+    name: String,
     statement: String,
     editorial: String,
+    sampleInput: String,
+    sampleOutput: String,
     testCases: [{
         // Store in File later, currently as String in DB
         input: String,

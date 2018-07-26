@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/header %>
+
+    <title><%= contest.name %></title>
+
+    <!-- Menu Bar CSS -->
+    <link rel="stylesheet" href="/css/menu-bar.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/contest/main.css">
+
+    <!-- Custom JS -->
+    <script src="/js/contest/index.js"></script>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<% include ../partials/navbar %>
+<!-- Menu Bar -->
+<% include ../partials/menu-bar %>
+
+<!-- Main Container -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <!-- Contest Name Container -->
+            <div id="name-container" class="row text-center">
+                <div class="col-sm-12"><%= contest.name %></div>
+            </div>
+
+            <!-- Show Problems Container if Contest Started -->
+            <div class="row contests-container">
+                <!-- Problems container -->
+                <div class="container-fluid">
+                    <!-- Heading -->
+                    <h3 class="sub-header text-center mb-2">Problems</h3>
+
+                    <!-- List Header -->
+                    <div class="row list-header">
+                        <div class="col-8">Name</div>
+                        <div class="col-2">Accuracy</div>
+                        <div class="col-2">Successful Submissions</div>
+                    </div>
+                    <!-- List Item for each contest -->
+                    <% contest.problems.forEach(problem => { %>
+                        <div class="list-item">
+                            <div class="row">
+                                <div class="col-sm-8"><%= problem.name %></div>
+                                <div class="col-sm-2"><%= problem.accuracy %>%</div>
+                                <div class="col-sm-2"><%= problem.numSuccessfulAttempts %></div>
+                            </div>
+                        </div>
+                    <% }) %>
+                    <% if(!contestStarted) { %>
+                        <a href="/contests/<%= contest._id %>/problems/new" class="btn btn-primary" id="add-problem-btn">Add a Problem</a>
+                    <% } %>
+                </div>
+            </div>
+
+            <!-- Contest Details -->
+            <div id="details-container" class="row">
+                <div class="col-sm-12">
+                    <h3 class="text-center mb-3">Contest Details</h3>
+
+                    <p>Start Time: <span id="start-time"><em><%= contest.startTime %></em></span></p>
+                    <p>Duration: <em><%= contest.duration %></em></p>
+                    <p>Organiser: <em><%= contest.organizer.name %></em></p>
+                    <p>Prizes:
+                    <ul>
+                        <% contest.prizes.forEach(prize =>{%>
+                        <li><%= prize %></li>
+                        <%})%>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Contest Rules & Regulations -->
+            <div id="rules-container" class="row">
+                <div class="col-sm-12">
+                    <h3 class="text-center mb-3">Rules & Regulations</h3>
+                    <ol>
+                        <li> Output should be in the same format that is given in sample submission.</li>
+                        <li> Before you attempt programming questions, you should choose a language from the given list.</li>
+                        <li>All inputs for the programming problems are from STDIN and output to STDOUT.</li>
+                        <li>You can submit the solution for a programming problem as many times as you want. For subjective and objective
+                            problems, you can change your answer as many times as you want.</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Countdown & Contest Rankings -->
+        <div class="col-sm-4">
+            <div id="countdown-container" class="container-fluid text-center">
+                <h3>Contest starts in:</h3>
+                <p id="countdown" class="mb-3">
+                    <span id="days">0</span>d
+                    <span id="hours">0</span>h
+                    <span id="minutes">0</span>m
+                    <span id="seconds">0</span>s
+                </p>
+                <button type="button" class="btn btn-success">Contest Rankings</button><br><br>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

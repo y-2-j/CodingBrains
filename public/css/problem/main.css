@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+/* Problem Name Container */
+#name-container {
+    background-color: #e3f2fd;
+    padding: 20px 30px;
+    margin-left: 10px;
+    border-radius: 5px;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+#name-container .name {
+    font-size: 33px;
+}
+
+#badges {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.tag-badge {
+    font-size: 10px;
+    margin-right: 10px;
+    padding: 5px 7px;
+}
+
+/* Problem Statement Container */
+#statement-container {
+    background-color: #ECF0F1;
+    padding: 20px 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+#statement-container h3 {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Submit Container */
+#submit-container {
+    background-color: #e3f2fd;
+    padding: 20px 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+
+/* Side Container */
+/* CountDown Container */
+#side-container {
+    background-color: #ECF0F1;
+    font-family: 'Roboto', sans-serif;
+    padding: 15px;
+    margin-right: 20px;
+    border-radius: 5px;
+    font-weight: bold
+}
+#side-container p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#side-container p:first-of-type {
+    margin-top: 10px;
+}

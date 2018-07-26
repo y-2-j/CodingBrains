@@ -4,6 +4,6 @@ module.exports = {
         if (req.user) {
             return next();
         }
-        res.sendStatus(401).send("You must be logged in to do that!!");
+        res.status(401).send("You must be logged in to do that!!");
     }
 }

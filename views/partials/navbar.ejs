@@ -1,0 +1,100 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark position-fixed" id="main-navbar">
+    <!-- Brand Name -->
+    <a class="navbar-brand" href="/">
+        <img id="logo" src="https://via.placeholder.com/60x60.png" width="60" height="60" class="d-inline-block" alt="Brand Logo">
+        Coding Brains
+    </a>
+
+    <!-- Navbar Buttons on Right -->
+    <ul class="navbar-nav ml-auto">
+        <% if (user) { %>
+            <!-- Welcome User Dropdown -->
+            <li class="nav-item dropdown mr-5">
+                <a class="btn btn-danger dropdown-toggle" href="#" id="navbar-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Welcome <%= user.username %>!
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+                    <a href="#" class="dropdown-item">Profile</a>
+                    <a href="/contests/new" class="dropdown-item">Hold a Contest</a>
+                    <a href="/contests/organized" class="dropdown-item">Organized Contests</a>
+                    <div class="dropdown-divider"></div>
+                    <a href="/logout" class="dropdown-item">Logout</a>
+                </div>
+            </li>
+        <% } else { %>
+            <!-- Login Signup Button -->
+            <li class="nav-item mr-5">
+                <a id="login-signup-btn" class="btn btn-success">Login/Signup</a>
+            </li>
+        <% } %>
+    </ul>
+</nav>
+
+<% if (!user) { %>
+    <!-- Login Modal -->
+    <div id="login-modal">
+        <div id="login-form" class="container text-center">
+            <!-- Login Heading -->
+            <img src="/img/login.png" width="100px" height="100px">
+            <h1>User Login</h1>
+            <!-- Close Button -->
+            <a id="login-close-btn"><i class="fa fa-times"></i></a>
+
+            <!-- Login Form -->
+            <form action="/login" method="POST">
+                <!-- Username -->
+                <div class="form-group">
+                    <input name="username" type="text" class="form-control" placeholder="Enter Username" required>
+                </div>
+                <!-- Password -->
+                <div class="form-group">
+                    <input name="password" type="password" class="form-control" placeholder="Enter Password" required>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-outline-success">Login</button>
+                <!-- Go to Signup Modal -->
+                <div>
+                    <a id="signup-btn" class="btn btn-outline-info">New User ? Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Signup Modal-->
+    <div id="signup-modal">
+        <div id="signup-form" class="container text-center">
+            <!-- Signup Heading -->
+            <img src="/img/signup.png" width="100px" height="100px">
+            <h1>User Signup</h1>
+            <a id="signup-close-btn"><i class="fa fa-times"></i></a>
+
+            <!-- Signup Form -->
+            <form action="/signup" method="POST">
+                <!-- Name -->
+                <div class="form-group">
+                    <input name="name" type="text" class="form-control" placeholder="Enter Name" required>
+                </div>
+                <!-- Username -->
+                <div class="form-group">
+                    <input name="username" type="text" class="form-control" placeholder="Enter Username" required>
+                </div>
+                <!-- Email Address -->
+                <div class="form-group">
+                    <input name="email" type="email" class="form-control" placeholder="Enter Email Address" required>
+                </div>
+                <!-- Password -->
+                <div class="form-group">
+                    <input name="password" type="password" class="form-control" placeholder="Enter Password" required>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-outline-success">Sign Up!</button>
+
+                <!-- Go to Login Modal -->
+                <div>
+                    <a id="login-btn" class="btn btn-outline-info">Already Signed Up ? Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+<% } %>
