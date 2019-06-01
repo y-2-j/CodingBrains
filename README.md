@@ -1,4 +1,4 @@
-# GyManager
+# CodingBrains
 
 A Platform for young coders to test Coding, DS, Algo Skills by organizing and participating in contests.
 Created using MongoDB Database.
